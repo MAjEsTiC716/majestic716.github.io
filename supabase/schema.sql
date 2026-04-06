@@ -54,6 +54,20 @@ create trigger touch_game_room
 before update on public.game_rooms
 for each row execute function public.touch_game_room();
 
+do $$
+begin
+  if not exists (
+    select 1
+    from pg_publication_tables
+    where pubname = 'supabase_realtime'
+      and schemaname = 'public'
+      and tablename = 'game_rooms'
+  ) then
+    alter publication supabase_realtime add table public.game_rooms;
+  end if;
+end;
+$$;
+
 alter table public.game_rooms enable row level security;
 
 drop policy if exists "participants can read their rooms" on public.game_rooms;
