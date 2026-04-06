@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Page Not Found | Noah Garcia">
+  <main class="shell missing section">
+    <div class="panel missing-card">
+      <span class="eyebrow">404</span>
+      <h1>That route drifted off course.</h1>
+      <p>
+        The page you requested does not exist. Return to the portfolio homepage to view projects, experience,
+        and the Supabase-backed playground.
+      </p>
+      <a class="button" href="/">Back to Home</a>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .missing {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+  }
+
+  .missing-card {
+    max-width: 720px;
+    padding: 2rem;
+  }
+
+  h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(2.8rem, 7vw, 4.8rem);
+    letter-spacing: -0.05em;
+    line-height: 0.95;
+  }
+
+  p {
+    max-width: 42ch;
+    color: var(--ink-soft);
+  }
+</style>

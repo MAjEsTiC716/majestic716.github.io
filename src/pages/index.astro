@@ -1,0 +1,693 @@
+---
+import PlaygroundApp from '../components/PlaygroundApp';
+import Layout from '../layouts/Layout.astro';
+import { activity, experience, highlights, projects, skillGroups, stats } from '../data/portfolio';
+---
+
+<Layout>
+  <header class="hero-wrap">
+    <div class="shell">
+      <nav class="topbar panel">
+        <a class="brand" href="#top">Noah Garcia</a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#playground">Playground</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+
+    <section class="shell hero section" id="top">
+      <div class="hero-copy">
+        <span class="eyebrow">Software Engineer</span>
+        <h1>
+          Building reliable systems,
+          <br />
+          shipping polished experiences,
+          <br />
+          and leaving room to play.
+        </h1>
+        <p class="hero-text">
+          I build backend tools, CI/CD workflows, database-driven systems, and cloud-facing automation. This
+          portfolio translates that engineering background into a seafoam-toned, interactive site with a
+          playable Supabase-backed game layer.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="#projects">View Projects</a>
+          <a class="button secondary" href="#playground">Open Playground</a>
+        </div>
+        <div class="hero-pills">
+          {highlights.map((item) => (
+            <span class="pill">{item}</span>
+          ))}
+        </div>
+      </div>
+
+      <aside class="hero-panel panel">
+        <div class="hero-panel-head">
+          <p>Focus</p>
+          <span>Seafoam systems profile</span>
+        </div>
+        <div class="hero-panel-grid">
+          {stats.map((item) => (
+            <article class="metric">
+              <strong>{item.value}</strong>
+              <span>{item.label}</span>
+            </article>
+          ))}
+        </div>
+      </aside>
+    </section>
+  </header>
+
+  <main>
+    <section class="section" id="about">
+      <div class="shell">
+        <span class="eyebrow">About</span>
+        <div class="intro-grid">
+          <div>
+            <h2 class="section-heading">A portfolio built around systems thinking, not template filler.</h2>
+            <p class="section-copy">
+              My work sits where software quality, infrastructure awareness, and practical implementation meet.
+              At Oracle I’ve worked on validation pipelines, upgrade testing, security patches, data sync test
+              architecture, and vulnerability-focused API testing. Earlier roles added DevOps, teaching, and
+              robotics work, which is why this site balances professional clarity with an interactive playground.
+            </p>
+          </div>
+          <div class="panel note-card">
+            <p class="note-title">What this site is trying to show</p>
+            <ul class="note-list">
+              <li>Production-minded engineering experience, not just frontend aesthetics</li>
+              <li>Comfort with databases, auth, and realtime state through Supabase</li>
+              <li>A portfolio that feels memorable without drifting away from hiring relevance</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="shell">
+        <span class="eyebrow">Experience</span>
+        <h2 class="section-heading">Work that spans cloud platforms, automation, teaching, and delivery.</h2>
+        <div class="timeline">
+          {experience.map((item) => (
+            <article class="timeline-card panel">
+              <div class="timeline-meta">
+                <p>{item.period}</p>
+                <span>{item.location}</span>
+              </div>
+              <div>
+                <h3>{item.role}</h3>
+                <p class="timeline-company">{item.company}</p>
+                <ul class="timeline-list">
+                  {item.bullets.map((bullet) => (
+                    <li>{bullet}</li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="shell">
+        <span class="eyebrow">Projects</span>
+        <div class="projects-head">
+          <div>
+            <h2 class="section-heading">Featured work that connects data, hardware, and systems design.</h2>
+            <p class="section-copy">
+              These projects are the clearest evidence of how I approach problem solving: structured where it
+              needs to be, exploratory where the constraints are unusual, and focused on building something that
+              actually behaves the way it was intended to.
+            </p>
+          </div>
+        </div>
+        <div class="project-grid">
+          {projects.map((project) => (
+            <article class="project-card panel">
+              <div class="project-head">
+                <h3>{project.title}</h3>
+                <div class="tag-row">
+                  {project.tech.map((tag) => (
+                    <span class="tag">{tag}</span>
+                  ))}
+                </div>
+              </div>
+              <p>{project.summary}</p>
+              <ul class="project-list">
+                {project.details.map((detail) => (
+                  <li>{detail}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="shell">
+        <span class="eyebrow">Skills</span>
+        <h2 class="section-heading">Technical range, grouped the way teams actually think about delivery.</h2>
+        <div class="skills-grid">
+          {skillGroups.map((group) => (
+            <article class="skill-card panel">
+              <h3>{group.title}</h3>
+              <div class="tag-row">
+                {group.items.map((item) => (
+                  <span class="tag">{item}</span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="playground">
+      <div class="shell">
+        <span class="eyebrow">Playground</span>
+        <div class="playground-head">
+          <div>
+            <h2 class="section-heading">Interactive frontend work, backed by auth, data, and realtime sync.</h2>
+            <p class="section-copy">
+              GitHub Pages handles the static delivery, while Supabase provides the account system, profile
+              storage, room persistence, and multiplayer updates. The result is a portfolio that still behaves
+              like a lightweight app.
+            </p>
+          </div>
+          <div class="panel note-card playground-note">
+            <p class="note-title">Backend shape</p>
+            <ul class="note-list">
+              <li>User accounts through Supabase Auth</li>
+              <li>Profiles and game rooms stored in Postgres</li>
+              <li>Realtime room updates through Supabase subscriptions</li>
+            </ul>
+          </div>
+        </div>
+        <PlaygroundApp client:load />
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="shell">
+        <div class="contact-card panel">
+          <div>
+            <span class="eyebrow">Contact</span>
+            <h2 class="section-heading">Open to software engineering work across backend, cloud, and automation.</h2>
+            <p class="section-copy">
+              If you’re looking for someone who can handle system quality, pipeline thinking, API workflows, and
+              still build a polished user-facing experience when needed, I’d be glad to connect.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <a class="contact-link" href="mailto:Noahg5641@gmail.com">
+              Noahg5641@gmail.com
+            </a>
+            <a class="contact-link" href="tel:+15052345479">
+              (505) 234-5479
+            </a>
+            <a class="contact-link" href="https://github.com/majestic716" rel="noreferrer" target="_blank">
+              github.com/majestic716
+            </a>
+            <a class="contact-link" href="/resume/Noah-Garcia-Resume-2026.pdf" target="_blank">
+              Resume PDF
+            </a>
+          </div>
+
+          <div class="activity-strip">
+            {activity.map((item) => (
+              <span class="pill">{item}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .hero-wrap {
+    padding: 1rem 0 2rem;
+  }
+
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 1rem;
+  }
+
+  .brand {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.88rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.1rem;
+    font-size: 0.95rem;
+  }
+
+  .hero {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.85fr);
+    align-items: stretch;
+  }
+
+  .hero-copy {
+    padding: 2rem 0 1rem;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(3.4rem, 9vw, 6.4rem);
+    line-height: 0.94;
+    letter-spacing: -0.055em;
+  }
+
+  .hero-text {
+    max-width: 62ch;
+    margin: 1.35rem 0 0;
+    color: var(--ink-soft);
+    font-size: 1.1rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 1.6rem;
+  }
+
+  .hero-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.35rem;
+  }
+
+  .hero-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.4rem;
+    overflow: hidden;
+  }
+
+  .hero-panel-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+  }
+
+  .hero-panel-head p {
+    margin: 0;
+  }
+
+  .hero-panel-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .metric {
+    padding: 1rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(191, 232, 215, 0.5));
+  }
+
+  .metric strong {
+    display: block;
+    margin-bottom: 0.45rem;
+    font-size: 1.5rem;
+    letter-spacing: -0.04em;
+  }
+
+  .metric span {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
+  .intro-grid,
+  .playground-head {
+    display: grid;
+    gap: 1.4rem;
+    grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.8fr);
+    align-items: start;
+  }
+
+  .note-card {
+    padding: 1.4rem;
+  }
+
+  .note-title {
+    margin: 0 0 0.9rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.86rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .note-list,
+  .timeline-list,
+  .project-list {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--ink-soft);
+  }
+
+  .note-list li,
+  .timeline-list li,
+  .project-list li {
+    margin-bottom: 0.65rem;
+  }
+
+  .timeline {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .timeline-card {
+    display: grid;
+    gap: 1.2rem;
+    grid-template-columns: 220px minmax(0, 1fr);
+    padding: 1.35rem;
+  }
+
+  .timeline-meta p,
+  .timeline-meta span,
+  .timeline-company {
+    margin: 0;
+  }
+
+  .timeline-meta {
+    color: var(--seafoam-5);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+
+  .timeline-card h3,
+  .project-card h3,
+  .skill-card h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1.45rem;
+    letter-spacing: -0.03em;
+  }
+
+  .timeline-company {
+    margin-bottom: 0.85rem;
+    color: var(--ink-soft);
+    font-size: 1rem;
+  }
+
+  .project-grid,
+  .skills-grid {
+    display: grid;
+    gap: 1.1rem;
+    margin-top: 2rem;
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .project-card,
+  .skill-card {
+    padding: 1.4rem;
+  }
+
+  .project-card p {
+    margin-top: 0.8rem;
+    color: var(--ink-soft);
+  }
+
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+  }
+
+  .tag {
+    display: inline-flex;
+    padding: 0.48rem 0.72rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.6);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.76rem;
+  }
+
+  .contact-card {
+    display: grid;
+    gap: 1.5rem;
+    padding: 1.75rem;
+  }
+
+  .contact-grid {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-link {
+    display: block;
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.65);
+    font-weight: 500;
+  }
+
+  .activity-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  :global(.playground-shell) {
+    padding: 1.35rem;
+  }
+
+  :global(.playground-tabs) {
+    display: inline-flex;
+    gap: 0.5rem;
+    padding: 0.35rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.7);
+  }
+
+  :global(.playground-tab) {
+    padding: 0.72rem 1rem;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  :global(.playground-tab.active) {
+    background: var(--ink);
+    color: var(--seafoam-1);
+  }
+
+  :global(.playground-grid) {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+    margin-top: 1.25rem;
+  }
+
+  :global(.playground-card) {
+    padding: 1.25rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: var(--surface-strong);
+  }
+
+  :global(.playground-aside) {
+    background: linear-gradient(180deg, rgba(16, 19, 18, 0.95), rgba(47, 93, 80, 0.92));
+    color: var(--seafoam-1);
+  }
+
+  :global(.playground-label) {
+    margin: 0 0 0.5rem;
+    color: var(--seafoam-5);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  :global(.playground-aside .playground-label) {
+    color: rgba(244, 255, 251, 0.78);
+  }
+
+  :global(.playground-card h3) {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  :global(.playground-copy) {
+    color: var(--ink-soft);
+  }
+
+  :global(.playground-aside .playground-copy),
+  :global(.playground-aside .playground-list) {
+    color: rgba(244, 255, 251, 0.86);
+  }
+
+  :global(.playground-list) {
+    margin: 1rem 0 0;
+    padding-left: 1.1rem;
+  }
+
+  :global(.board) {
+    display: grid;
+    gap: 0.7rem;
+    grid-template-columns: repeat(3, minmax(0, 92px));
+    margin: 1.2rem 0;
+  }
+
+  :global(.board.multiplayer) {
+    grid-template-columns: repeat(3, minmax(0, 80px));
+  }
+
+  :global(.cell) {
+    aspect-ratio: 1;
+    border: 1px solid var(--line-strong);
+    border-radius: 24px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(191, 232, 215, 0.68));
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  :global(.cell:disabled) {
+    cursor: not-allowed;
+    opacity: 0.78;
+  }
+
+  :global(.playground-actions) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  :global(.form-grid) {
+    display: grid;
+    gap: 0.9rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 1rem 0 1.2rem;
+  }
+
+  :global(.form-grid.compact) {
+    grid-template-columns: 1fr;
+  }
+
+  :global(.form-grid label) {
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  :global(.form-grid span) {
+    color: var(--ink-soft);
+    font-size: 0.86rem;
+  }
+
+  :global(.form-grid input) {
+    min-height: 3rem;
+    padding: 0.8rem 0.95rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.88);
+  }
+
+  :global(.status-ok),
+  :global(.status-error) {
+    margin-bottom: 0;
+    font-size: 0.92rem;
+  }
+
+  :global(.status-ok) {
+    color: var(--seafoam-5);
+  }
+
+  :global(.status-error) {
+    color: #8b1e1e;
+  }
+
+  :global(.room-meta) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-bottom: 0.8rem;
+  }
+
+  :global(.setup-card code) {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  @media (max-width: 980px) {
+    .hero,
+    .intro-grid,
+    .playground-head,
+    :global(.playground-grid) {
+      grid-template-columns: 1fr;
+    }
+
+    .skills-grid,
+    .project-grid,
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .timeline-card {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .topbar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .nav-links {
+      flex-wrap: wrap;
+    }
+
+    :global(.form-grid) {
+      grid-template-columns: 1fr;
+    }
+
+    :global(.board),
+    :global(.board.multiplayer) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>
