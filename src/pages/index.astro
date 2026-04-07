@@ -1,7 +1,7 @@
 ---
 import PlaygroundApp from '../components/PlaygroundApp';
 import Layout from '../layouts/Layout.astro';
-import { activity, experience, highlights, projects, skillGroups, stats } from '../data/portfolio';
+import { activity, education, experience, highlights, projects, skillGroups, stats } from '../data/portfolio';
 ---
 
 <Layout>
@@ -13,6 +13,7 @@ import { activity, experience, highlights, projects, skillGroups, stats } from '
           <a href="#about">About</a>
           <a href="#experience">Experience</a>
           <a href="#projects">Projects</a>
+          <a href="#education">Education</a>
           <a href="#playground">Playground</a>
           <a href="#contact">Contact</a>
         </div>
@@ -23,16 +24,16 @@ import { activity, experience, highlights, projects, skillGroups, stats } from '
       <div class="hero-copy">
         <span class="eyebrow">Software Engineer</span>
         <h1>
-          Building reliable systems,
+          Building backend systems,
           <br />
-          shipping polished experiences,
+          validating production changes,
           <br />
           and leaving room to play.
         </h1>
         <p class="hero-text">
-          I build backend tools, CI/CD workflows, database-driven systems, and cloud-facing automation. This
-          portfolio translates that engineering background into a seafoam-toned, interactive site with a
-          playable Supabase-backed game layer.
+          I build and test Java/Python backend systems, REST APIs, CI/CD pipelines, and relational database
+          solutions in Linux environments. This portfolio translates that engineering background into a
+          seafoam-toned, interactive site with a playable Supabase-backed game layer.
         </p>
         <div class="hero-actions">
           <a class="button" href="#projects">View Projects</a>
@@ -71,9 +72,10 @@ import { activity, experience, highlights, projects, skillGroups, stats } from '
             <h2 class="section-heading">A portfolio built around systems thinking, not template filler.</h2>
             <p class="section-copy">
               My work sits where software quality, infrastructure awareness, and practical implementation meet.
-              At Oracle I’ve worked on validation pipelines, upgrade testing, security patches, data sync test
-              architecture, and vulnerability-focused API testing. Earlier roles added DevOps, teaching, and
-              robotics work, which is why this site balances professional clarity with an interactive playground.
+              At Oracle I worked on validation pipelines, upgrade testing, security patches, data sync test
+              architecture, vulnerability-focused API testing, and Agile delivery with engineering stakeholders.
+              Earlier roles added DevOps, teaching, and robotics work, which is why this site balances
+              professional clarity with an interactive playground.
             </p>
           </div>
           <div class="panel note-card">
@@ -81,6 +83,7 @@ import { activity, experience, highlights, projects, skillGroups, stats } from '
             <ul class="note-list">
               <li>Production-minded engineering experience, not just frontend aesthetics</li>
               <li>Comfort with databases, auth, and realtime state through Supabase</li>
+              <li>Interest in reliable large-scale content distribution systems</li>
               <li>A portfolio that feels memorable without drifting away from hiring relevance</li>
             </ul>
           </div>
@@ -163,6 +166,23 @@ import { activity, experience, highlights, projects, skillGroups, stats } from '
                   <span class="tag">{item}</span>
                 ))}
               </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="shell">
+        <span class="eyebrow">Education</span>
+        <h2 class="section-heading">Computer science foundation with graduate study ahead.</h2>
+        <div class="education-grid">
+          {education.map((item) => (
+            <article class="education-card panel">
+              <p class="timeline-meta">{item.location}</p>
+              <h3>{item.credential}</h3>
+              <p class="timeline-company">{item.school}</p>
+              <span class="pill">{item.detail}</span>
             </article>
           ))}
         </div>
@@ -397,6 +417,7 @@ import { activity, experience, highlights, projects, skillGroups, stats } from '
   }
 
   .timeline-meta {
+    margin: 0 0 0.45rem;
     color: var(--seafoam-5);
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.8rem;
@@ -418,13 +439,15 @@ import { activity, experience, highlights, projects, skillGroups, stats } from '
   }
 
   .project-grid,
-  .skills-grid {
+  .skills-grid,
+  .education-grid {
     display: grid;
     gap: 1.1rem;
     margin-top: 2rem;
   }
 
-  .project-grid {
+  .project-grid,
+  .education-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -433,8 +456,15 @@ import { activity, experience, highlights, projects, skillGroups, stats } from '
   }
 
   .project-card,
-  .skill-card {
+  .skill-card,
+  .education-card {
     padding: 1.4rem;
+  }
+
+  .education-card h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1.45rem;
+    letter-spacing: -0.03em;
   }
 
   .project-card p {
@@ -661,6 +691,7 @@ import { activity, experience, highlights, projects, skillGroups, stats } from '
 
     .skills-grid,
     .project-grid,
+    .education-grid,
     .contact-grid {
       grid-template-columns: 1fr;
     }

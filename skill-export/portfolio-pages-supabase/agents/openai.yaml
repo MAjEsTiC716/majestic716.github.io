@@ -1,0 +1,7 @@
+interface:
+  display_name: "Portfolio Pages Supabase"
+  short_description: "Build a GitHub-hosted interactive portfolio."
+  default_prompt: "Use $portfolio-pages-supabase to build or extend a GitHub Pages portfolio with Astro, a strong visual system, and optional Supabase-backed auth and multiplayer."
+
+policy:
+  allow_implicit_invocation: true
