@@ -17,6 +17,9 @@ pnpm-debug.log*
 .env
 .env.production
 
+# local Codex skill export artifacts
+skill-export/
+
 # macOS-specific files
 .DS_Store
 
