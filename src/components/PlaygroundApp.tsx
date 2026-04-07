@@ -64,6 +64,14 @@ function cardError(error: unknown) {
   return 'Something went wrong.';
 }
 
+function getEmailRedirectTo() {
+  if (typeof window === 'undefined') {
+    return undefined;
+  }
+
+  return `${window.location.origin}/#playground`;
+}
+
 export default function PlaygroundApp() {
   const [practiceBoard, setPracticeBoard] = useState<PracticeCell[]>(emptyBoard);
   const [practiceTurn, setPracticeTurn] = useState<'X' | 'O'>('X');
@@ -287,6 +295,7 @@ export default function PlaygroundApp() {
           email,
           password,
           options: {
+            emailRedirectTo: getEmailRedirectTo(),
             data: {
               username,
             },

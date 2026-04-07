@@ -46,6 +46,26 @@ cp .env.example .env
 npm run dev
 ```
 
+Astro usually serves the site at `http://localhost:4321`.
+
+## Supabase Multiplayer Setup
+
+In Supabase:
+
+1. Go to `SQL Editor` and run the full contents of `supabase/schema.sql`.
+2. Go to `Authentication > URL Configuration`.
+3. Set the local development Site URL to `http://localhost:4321`.
+4. Add these Redirect URLs:
+
+```text
+http://localhost:4321/**
+https://majestic716.github.io/**
+```
+
+5. If you are testing quickly, go to `Authentication > Sign In / Providers > Email` and temporarily disable email confirmations. Re-enable confirmations before using the site publicly.
+
+If a confirmation link shows `otp_expired`, request a new signup/login email. Supabase email links are single-use and can expire; old links will keep failing even after settings are fixed.
+
 ## GitHub Pages Deployment
 
 Set these repository secrets before enabling Pages deployment:
