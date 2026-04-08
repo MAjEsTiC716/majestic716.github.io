@@ -1,6 +1,6 @@
 # Noah Garcia Portfolio
 
-Astro portfolio site for Noah Garcia, styled with a seafoam green and black visual system and deployed to GitHub Pages. The site includes:
+Astro portfolio site for Noah Garcia, styled with a custom green and black visual system and deployed to GitHub Pages. The site includes:
 
 - professional portfolio sections based on resume content
 - a local interactive Tic-Tac-Toe practice game
