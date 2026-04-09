@@ -1,12 +1,12 @@
 export const highlights = [
-  '4+ years building backend systems',
+  '5+ years building backend systems',
   'CI/CD, APIs, and regression automation',
   'Oracle Cloud Infrastructure, AWS, Docker, Kubernetes',
   'Database design, robotics, and teaching experience',
 ];
 
 export const stats = [
-  { value: '4+', label: 'years building and testing backend systems in Linux environments' },
+  { value: '5+', label: 'years building and testing backend systems in Linux environments' },
   { value: 'CI/CD', label: 'Jenkins pipelines, release validation, and regression automation' },
   { value: 'APIs + SQL', label: 'REST APIs, OCI CLI/SDK generation, and relational database work' },
   { value: 'Robotics', label: 'Raspberry Pi and Arduino experimentation beyond web systems' },
