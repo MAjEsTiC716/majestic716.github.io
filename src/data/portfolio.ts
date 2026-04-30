@@ -91,7 +91,7 @@ export const projects = [
 export const skillGroups = [
   {
     title: 'Languages',
-    items: ['Java', 'Python', 'Bash', 'SQL'],
+    items: ['Java', 'Python', 'Bash', 'SQL', 'C++'],
   },
   {
     title: 'Backend and APIs',
